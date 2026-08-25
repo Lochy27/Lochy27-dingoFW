@@ -278,6 +278,10 @@ void Profet::CalculateCurrent()
         if (fCurrent <= 1.0f)
             fCurrent = 0;
         break;
+        case ProfetModel::BTS7004_1ESP:
+        if (fCurrent <= 1.0f)
+            fCurrent = 0;
+        break;
     }
 }
 

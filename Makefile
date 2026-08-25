@@ -7,6 +7,7 @@ ifeq ($(BOARD),)
 	#BOARD = dingopdm_v7
 	#BOARD = dingopdmmax_v1
 	BOARD = canboard_v2
+	#BOARD = V-PDM110
 endif
 
 $(info BOARD is set to: $(BOARD))
