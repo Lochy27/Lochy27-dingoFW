@@ -75,6 +75,7 @@ public:
         case ProfetModel::BTS70012_1ESP:
             fKILIS = BTS70012_1ESP_KILIS;
             nPwmReadDelay = PWM_READ_DELAY_SINGLE_CH;
+            break;
         case ProfetModel::BTS7004_1ESP:
             fKILIS = BTS7004_1ESP_KILIS;
             nPwmReadDelay = PWM_READ_DELAY_SINGLE_CH;

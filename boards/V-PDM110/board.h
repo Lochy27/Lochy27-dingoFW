@@ -45,7 +45,7 @@
 #if !defined(STM32_HSECLK)
 #define STM32_HSECLK                25000000U
 #endif
-
+//// only for testing with nucleo board
 #define STM32_HSE_BYPASS
 
 #if !defined(STM32_VDD)

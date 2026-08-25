@@ -163,7 +163,8 @@ enum class ProfetModel : uint8_t
     BTS7002_1EPP,
     BTS7008_2EPA_CH1,
     BTS7008_2EPA_CH2,
-    BTS70012_1ESP
+    BTS70012_1ESP,
+    BTS7004_1ESP
 };
 
 enum class ProfetState : uint8_t

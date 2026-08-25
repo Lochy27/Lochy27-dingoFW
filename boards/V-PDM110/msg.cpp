@@ -50,7 +50,10 @@ CANTxMsg TxMsg2()
     //=======================================================
     stMsg.frame.SID = stConfig.stDevice.nBaseId + CYCLIC_TX_OFFSET + 2;
     stMsg.frame.DLC = 8; // Bytes to send
-    stMsg.frame.data64[0] = 0;
+    stMsg.frame.data16[0] = (uint16_t)GetOutputCurrent(4);
+    stMsg.frame.data16[1] = (uint16_t)GetOutputCurrent(5);
+    stMsg.frame.data16[2] = (uint16_t)GetOutputCurrent(6);
+    stMsg.frame.data16[3] = (uint16_t)GetOutputCurrent(7);
 
     stMsg.bSend = true; // Always send
 
@@ -67,8 +70,8 @@ CANTxMsg TxMsg3()
     stMsg.frame.DLC = 8; // Bytes to send
     stMsg.frame.data8[0] = (static_cast<uint8_t>(GetOutputState(1)) << 4) + static_cast<uint8_t>(GetOutputState(0));
     stMsg.frame.data8[1] = (static_cast<uint8_t>(GetOutputState(3)) << 4) + static_cast<uint8_t>(GetOutputState(2));
-    stMsg.frame.data8[2] = 0;
-    stMsg.frame.data8[3] = 0;
+    stMsg.frame.data8[2] = (static_cast<uint8_t>(GetOutputState(5)) << 4) + static_cast<uint8_t>(GetOutputState(4));
+    stMsg.frame.data8[3] = (static_cast<uint8_t>(GetOutputState(7)) << 4) + static_cast<uint8_t>(GetOutputState(6));
     stMsg.frame.data8[4] = (GetWiperFastOut() << 1) + GetWiperSlowOut();
     stMsg.frame.data8[5] = (static_cast<uint8_t>(GetWiperState()) << 4) + static_cast<uint8_t>(GetWiperSpeed());
     stMsg.frame.data8[6] = (GetFlasherVal(3) << 3) + (GetFlasherVal(2) << 2) +
@@ -84,7 +87,7 @@ CANTxMsg TxMsg4()
 {
     CANTxMsg stMsg;
     //=======================================================
-    // Build Msg 4 (Out 1-4 Reset Count)
+    // Build Msg 4 (Out 1-8 Reset Count)
     //=======================================================
     stMsg.frame.SID = stConfig.stDevice.nBaseId + CYCLIC_TX_OFFSET + 4;
     stMsg.frame.DLC = 8; // Bytes to send
@@ -92,10 +95,10 @@ CANTxMsg TxMsg4()
     stMsg.frame.data8[1] = GetOutputOcCount(1);
     stMsg.frame.data8[2] = GetOutputOcCount(2);
     stMsg.frame.data8[3] = GetOutputOcCount(3);
-    stMsg.frame.data8[4] = 0;
-    stMsg.frame.data8[5] = 0;
-    stMsg.frame.data8[6] = 0;
-    stMsg.frame.data8[7] = 0;
+    stMsg.frame.data8[4] = GetOutputOcCount(4);
+    stMsg.frame.data8[5] = GetOutputOcCount(5);
+    stMsg.frame.data8[6] = GetOutputOcCount(6);
+    stMsg.frame.data8[7] = GetOutputOcCount(7);
 
     stMsg.bSend = true; // Always send
 
@@ -397,7 +400,7 @@ CANTxMsg TxMsg23()
 {
     CANTxMsg stMsg;
     //=======================================================
-    // Build Msg 23 (Output Duty Cycle)
+    // Build Msg 23 (Output Duty Cycle 1-8)
     //=======================================================
     stMsg.frame.SID = stConfig.stDevice.nBaseId + CYCLIC_TX_OFFSET + 23;
     stMsg.frame.DLC = 8;
@@ -405,10 +408,10 @@ CANTxMsg TxMsg23()
     stMsg.frame.data8[1] = GetOutputDC(1);
     stMsg.frame.data8[2] = GetOutputDC(2);
     stMsg.frame.data8[3] = GetOutputDC(3);
-    stMsg.frame.data8[4] = 0;
-    stMsg.frame.data8[5] = 0;
-    stMsg.frame.data8[6] = 0;
-    stMsg.frame.data8[7] = 0;
+    stMsg.frame.data8[4] = GetOutputDC(4);
+    stMsg.frame.data8[5] = GetOutputDC(5);
+    stMsg.frame.data8[6] = GetOutputDC(6);
+    stMsg.frame.data8[7] = GetOutputDC(7);
 
     stMsg.bSend = GetAnyPwmEnable();
 
@@ -477,6 +480,51 @@ CANTxMsg TxMsg26()
     stMsg.frame.data8[7] = ((uint16_t)GetKeypadDialVal(1,3) >> 8) & 0xFF;
 
     stMsg.bSend = GetKeypadEnable(1);
+
+    return stMsg;
+}
+
+CANTxMsg TxMsg27()
+{
+    CANTxMsg stMsg;
+    //=======================================================
+    // Build Msg 27 (Analog inputs 1-3 + rotary + digital mode)
+    //=======================================================
+    stMsg.frame.IDE = CAN_IDE_STD;
+    stMsg.frame.SID = stConfig.stDevice.nBaseId + CYCLIC_TX_OFFSET + 27;
+    stMsg.frame.DLC = 8;
+    stMsg.frame.data16[0] = (uint16_t)(GetAnalogInputMv(0));
+    stMsg.frame.data16[1] = (uint16_t)(GetAnalogInputMv(1));
+    stMsg.frame.data16[2] = (uint16_t)(GetAnalogInputMv(2));
+    stMsg.frame.data8[6] = ((uint8_t)GetRotarySwitchPos(1) << 4) + (uint8_t)GetRotarySwitchPos(0);
+    stMsg.frame.data8[7] = ((uint8_t)GetAnalogSwitchVal(2) << 6) +
+                           ((uint8_t)GetAnalogSwitchVal(1) << 5) +
+                           ((uint8_t)GetAnalogSwitchVal(0) << 4) +
+                           (uint8_t)GetRotarySwitchPos(2);
+
+    stMsg.bSend = GetAnyAnalogInputEnable();
+
+    return stMsg;
+}
+
+CANTxMsg TxMsg28()
+{
+    CANTxMsg stMsg;
+    //=======================================================
+    // Build Msg 28 (Output Duty Cycle 9-10)
+    //=======================================================
+    stMsg.frame.SID = stConfig.stDevice.nBaseId + CYCLIC_TX_OFFSET + 28;
+    stMsg.frame.DLC = 8;
+    stMsg.frame.data8[0] = GetOutputDC(8);
+    stMsg.frame.data8[1] = GetOutputDC(9);
+    stMsg.frame.data8[2] = 0;
+    stMsg.frame.data8[3] = 0;
+    stMsg.frame.data8[4] = 0;
+    stMsg.frame.data8[5] = 0;
+    stMsg.frame.data8[6] = 0;
+    stMsg.frame.data8[7] = 0;
+
+    stMsg.bSend = GetAnyPwmEnable();
 
     return stMsg;
 }

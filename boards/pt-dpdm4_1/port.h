@@ -65,7 +65,7 @@
 
 #define ADC1_NUM_CHANNELS 9
 #define ADC1_BUF_DEPTH 1
-
+// current sense constant from data sheet, used to calculate current from ADC reading
 #define BTS7002_1EPP_KILIS 22950
 #define BTS7008_2EPA_KILIS 5950
 #define BTS70012_1ESP_KILIS 35000

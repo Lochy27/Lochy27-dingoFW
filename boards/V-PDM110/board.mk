@@ -28,6 +28,7 @@ CPPSRC_BOARD += comms/usb.cpp \
 				functions/wiper/wiper_intin.cpp \
 				functions/wiper/wiper_mixin.cpp \
 				functions/wiper/wiper.cpp \
+				functions/analog_input.cpp \
 				functions/keypad/blink/blink_button.cpp \
 				functions/keypad/blink/blink_dial.cpp \
 				functions/keypad/blink/blink_analog_input.cpp \

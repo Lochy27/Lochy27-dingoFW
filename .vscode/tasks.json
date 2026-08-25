@@ -41,7 +41,8 @@
                 "dingopdm_v7",
                 "dingopdmmax_v1",
                 "canboard_v2",
-                "pt-dpdm4_1"
+                "pt-dpdm4_1",
+                "V-PDM110"
             ],
             "default": "dingopdm_v7"
         }

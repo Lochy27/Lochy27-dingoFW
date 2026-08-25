@@ -3,7 +3,7 @@
 #include "hal.h"
 #include "enums.h"
 
-#define PDM_TYPE 1 //1 = PDM-MAX 
+#define PDM_TYPE 3 //3 = V-PDM110
 
 #define PROCESS_STACK 0x1000
 
@@ -15,10 +15,10 @@
 #define HAS_BATT_VOLT_SENSE TRUE
 #define CAN_SLEEP TRUE
 
-#define NUM_OUTPUTS 4
+#define NUM_OUTPUTS 10
 #define NUM_DIG_OUTPUTS 0
 #define NUM_DIG_INPUTS 2
-#define NUM_ANALOG_INPUTS 0
+#define NUM_ANALOG_INPUTS 3
 #define NUM_VIRT_INPUTS 16
 #define NUM_CAN_INPUTS 32
 #define NUM_CAN_OUTPUTS 32
@@ -58,7 +58,7 @@
 #define MAILBOX_SIZE 128
 #define DEVICE_THREAD_STACK 2048
 
-#define NUM_TX_MSGS 27
+#define NUM_TX_MSGS 29
 #define DEFAULT_BASE_ID 0x0DE
 
 #define ADC1_NUM_CHANNELS 7
@@ -67,6 +67,7 @@
 #define BTS7002_1EPP_KILIS 22950
 #define BTS7008_2EPA_KILIS 5950
 #define BTS70012_1ESP_KILIS 35000
+#define BTS7004_1ESP_KILIS 22950
 
 #define SLEEP_TIMEOUT 30000
 
@@ -81,6 +82,12 @@ enum class AnalogChannel
     IS2,
     IS3,
     IS4,
+    IS5,
+    IS6,
+    IS7,
+    IS8,
+    IS9,
+    IS10,
     BattVolt,
     TempSensor,
     VRefInt
