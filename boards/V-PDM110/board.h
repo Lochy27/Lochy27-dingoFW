@@ -200,34 +200,67 @@
 /*
  * IO lines assignments.
  */
-#define LINE_PF1_IS                 PAL_LINE(GPIOC, 3U)
-#define LINE_PF1_IN                 PAL_LINE(GPIOB, 14U)
-#define LINE_PF1_DEN                PAL_LINE(GPIOB, 13U)
-#define LINE_PF2_IS                 PAL_LINE(GPIOC, 2U)
-#define LINE_PF2_IN                 PAL_LINE(GPIOC, 7U)
-#define LINE_PF2_DEN                PAL_LINE(GPIOC, 6U)
-#define LINE_PF3_IS                 PAL_LINE(GPIOA, 0U)
-#define LINE_PF3_IN                 PAL_LINE(GPIOB, 0U)
-#define LINE_PF3_DEN                PAL_LINE(GPIOC, 5U)
-#define LINE_PF4_IS                 PAL_LINE(GPIOA, 1U)
-#define LINE_PF4_IN                 PAL_LINE(GPIOA, 6U)
-#define LINE_PF4_DEN                PAL_LINE(GPIOC, 1U)
-#define LINE_DI1                    PAL_LINE(GPIOA, 10U)
-#define LINE_DI2                    PAL_LINE(GPIOC, 9U)
-#define LINE_LED_ERROR              PAL_LINE(GPIOC, 0U)
-#define LINE_LED_STATUS             PAL_LINE(GPIOA, 5U)
-#define LINE_BATT_SENSE             PAL_LINE(GPIOA, 3U)
-#define LINE_USB_VBUS               PAL_LINE(GPIOA, 9U)
-#define LINE_CAN_STANDBY            PAL_LINE(GPIOC, 12U)
-#define LINE_I2C1_SCL               PAL_LINE(GPIOB, 6U)
-#define LINE_I2C1_SDA               PAL_LINE(GPIOB, 7U)
-#define LINE_CAN_RX                 PAL_LINE(GPIOB, 8U)
-#define LINE_CAN_TX                 PAL_LINE(GPIOB, 9U)
-#define LINE_USB_DM                 PAL_LINE(GPIOA, 11U)
-#define LINE_USB_DP                 PAL_LINE(GPIOA, 12U)
-#define LINE_SWDIO                  PAL_LINE(GPIOA, 13U)
-#define LINE_SWCLK                  PAL_LINE(GPIOA, 14U)
-#define LINE_SWO                    PAL_LINE(GPIOB, 3U)
+//#define LINE_PF1_IS                 PAL_LINE(GPIOC, 3U)
+#define LINE_PF1_IN                 PAL_LINE(GPIOA, 10U) //changed
+//#define LINE_PF1_DEN                PAL_LINE(GPIOB, 13U)
+
+//#define LINE_PF2_IS                 PAL_LINE(GPIOC, 2U)
+#define LINE_PF2_IN                 PAL_LINE(GPIOA, 9U) //changed
+//#define LINE_PF2_DEN                PAL_LINE(GPIOC, 6U)
+
+//#define LINE_PF3_IS                 PAL_LINE(GPIOA, 0U)
+#define LINE_PF3_IN                 PAL_LINE(GPIOA, 8U) //changed
+//#define LINE_PF3_DEN                PAL_LINE(GPIOC, 5U)
+
+//#define LINE_PF4_IS                 PAL_LINE(GPIOA, 1U)
+#define LINE_PF4_IN                 PAL_LINE(GPIOC, 9U) //changed
+//#define LINE_PF4_DEN      
+
+#define LINE_PF5_IS                 PAL_LINE(GPIOB, 0U) //changed
+#define LINE_PF5_IN                 PAL_LINE(GPIOB, 14U) //changed
+//#define LINE_PF5_DEN                PAL_LINE(GPIOC, 10U)
+
+#define LINE_PF6_IS                 PAL_LINE(GPIOC, 5U) //changed
+#define LINE_PF6_IN                 PAL_LINE(GPIOB, 13U) //changed
+//#define LINE_PF6_DEN                PAL_LINE(GPIOC, 10U)
+
+#define LINE_PF7_IS                 PAL_LINE(GPIOC, 4U) //changed
+#define LINE_PF7_IN                 PAL_LINE(GPIOB, 12U) //changed
+//#define LINE_PF7_DEN 
+
+#define LINE_PF8_IS                 PAL_LINE(GPIOA, 7U)//changed
+#define LINE_PF8_IN                 PAL_LINE(GPIOB, 10U) //changed
+//#define LINE_PF8_DEN 
+
+#define LINE_PF9_IS                 PAL_LINE(GPIOA, 6U) //changed
+#define LINE_PF9_IN                 PAL_LINE(GPIOB, 2U) //changed
+//#define LINE_PF9_DEN                PAL_LINE(GPIOC, 10U)
+
+#define LINE_PF10_IS                PAL_LINE(GPIOA, 4U) //changed
+#define LINE_PF10_IN                 PAL_LINE(GPIOB, 1U) //changed
+//#define LINE_PF10_DEN
+
+#define LINE_DI1                    PAL_LINE(GPIOA, 0U)//changed
+#define LINE_DI2                    PAL_LINE(GPIOA, 1U)
+
+#define LINE_AI1                    PAL_LINE(GPIOC, 3U)
+#define LINE_AI2                    PAL_LINE(GPIOC, 2U)
+#define LINE_AI3                    PAL_LINE(GPIOC, 1U)
+
+#define LINE_LED_ERROR              PAL_LINE(GPIOC, 0U) //stays the same
+#define LINE_LED_STATUS             PAL_LINE(GPIOA, 5U) //stays the same
+//#define LINE_BATT_SENSE             PAL_LINE(GPIOA, 3U) 
+#define LINE_USB_VBUS               PAL_LINE(GPIOC, 8U) //changed
+#define LINE_CAN_STANDBY            PAL_LINE(GPIOB, 5U) //changed
+#define LINE_I2C1_SCL               PAL_LINE(GPIOB, 6U) //stays the same
+#define LINE_I2C1_SDA               PAL_LINE(GPIOB, 7U) //stays the same
+#define LINE_CAN_RX                 PAL_LINE(GPIOB, 8U) //stays the same
+#define LINE_CAN_TX                 PAL_LINE(GPIOB, 9U) //stays the same
+#define LINE_USB_DM                 PAL_LINE(GPIOA, 11U) //stays the same
+#define LINE_USB_DP                 PAL_LINE(GPIOA, 12U) //stays the same
+#define LINE_SWDIO                  PAL_LINE(GPIOA, 13U) //stays the same
+#define LINE_SWCLK                  PAL_LINE(GPIOA, 14U) //stays the same
+#define LINE_SWO                    PAL_LINE(GPIOB, 3U) //stays the same
 #define LINE_E1                     PAL_LINE(GPIOC, 10U)
 #define LINE_E2                     PAL_LINE(GPIOC, 11U)
 #define LINE_E3                     PAL_LINE(GPIOC, 13U)
@@ -274,15 +307,15 @@
 /*
  * GPIOA setup:
  *
- * PA0  - PF3_IS                    (analog in).
- * PA1  - PF4_IS                    (analog in).
+ * PA0  - DIG_IN1                    (Digital 1).
+ * PA1  - DIG_IN2                    (Digital 2).
  * PA2  -                           (input pullup).
  * PA3  - BATT_SENSE                (analog in).
  * PA4  -                           (input pullup).
  * PA5  - STATUS_LED                (output pushpull pulldown).
- * PA6  - PF4_IN                    (output pushpull pulldown).
- * PA7  -                           (input pullup).
- * PA8  -                           (input pullup).
+ * PA6  - PF5_IS                    (low current sense 5 ).
+ * PA7  - PF4_IS                    (low current sense 4 ).
+ * PA8  - PF1_IN                     (output pushpull pulldown).
  * PA9  - USB_VBUS                  (input pulldown).
  * PA10 - DIG_IN1                   (input).
  * PA11 - USB_DM                    (alternate 10, usb dm).

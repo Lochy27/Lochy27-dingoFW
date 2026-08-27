@@ -18,6 +18,11 @@ Digital_Input digIn[NUM_DIG_INPUTS] = {
     Digital_Input(LINE_DI1),
     Digital_Input(LINE_DI2)};    
 
+Analog_Input analogIn[NUM_ANALOG_INPUTS] = {
+    Analog_Input(AnalogChannel::AnIn1),
+    Analog_Input(AnalogChannel::AnIn2),
+    Analog_Input(AnalogChannel::AnIn3)};
+
 Led statusLed = Led(LINE_LED_STATUS);
 Led errorLed = Led(LINE_LED_ERROR);
 
