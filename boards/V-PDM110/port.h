@@ -88,6 +88,9 @@ enum class AnalogChannel
     IS8,
     IS9,
     IS10,
+    AnIn1,
+    AnIn2,
+    AnIn3,
     BattVolt,
     TempSensor,
     VRefInt
@@ -111,5 +114,6 @@ msg_t InitAdc();
 void DeInitAdc();
 uint16_t GetAdcRaw(AnalogChannel channel);
 float GetBattVolt();
+float GetAdcVolts(AnalogChannel channel);
 float GetTemperature();
 float GetVDDA();

@@ -2,16 +2,16 @@
 #include "port_pwm.h"
 
 Profet pf[NUM_OUTPUTS] = {
-    Profet(1, ProfetModel::BTS70012_1ESP, LINE_PF1_IN, LINE_PF1_DEN, LINE_UNUSED, AnalogChannel::IS1, &PWMD3, &pwm3Cfg, PwmChannel::Ch1),
-    Profet(2, ProfetModel::BTS70012_1ESP, LINE_PF2_IN, LINE_PF2_DEN, LINE_UNUSED, AnalogChannel::IS2, &PWMD4, &pwm4Cfg, PwmChannel::Ch1),
-    Profet(3, ProfetModel::BTS70012_1ESP, LINE_PF3_IN, LINE_PF3_DEN, LINE_UNUSED, AnalogChannel::IS3, &PWMD5, &pwm5Cfg, PwmChannel::Ch1),
-    Profet(4, ProfetModel::BTS70012_1ESP, LINE_PF4_IN, LINE_PF4_DEN, LINE_UNUSED, AnalogChannel::IS4, &PWMD9, &pwm9Cfg, PwmChannel::Ch1),
-    Profet(5, ProfetModel::BTS7004_1ESP, LINE_PF5_IN, LINE_PF5_DEN, LINE_UNUSED, AnalogChannel::IS5, &PWMD3, &pwm3Cfg, PwmChannel::Ch1),
-    Profet(6, ProfetModel::BTS7004_1ESP, LINE_PF6_IN, LINE_PF6_DEN, LINE_UNUSED, AnalogChannel::IS6, &PWMD4, &pwm4Cfg, PwmChannel::Ch1),
-    Profet(7, ProfetModel::BTS7004_1ESP, LINE_PF7_IN, LINE_PF7_DEN, LINE_UNUSED, AnalogChannel::IS7, &PWMD5, &pwm5Cfg, PwmChannel::Ch1),
-    Profet(8, ProfetModel::BTS7004_1ESP, LINE_PF8_IN, LINE_PF8_DEN, LINE_UNUSED, AnalogChannel::IS8, &PWMD9, &pwm9Cfg, PwmChannel::Ch1),
-    Profet(9, ProfetModel::BTS7004_1ESP, LINE_PF9_IN, LINE_PF9_DEN, LINE_UNUSED, AnalogChannel::IS9, &PWMD3, &pwm3Cfg, PwmChannel::Ch1),
-    Profet(10, ProfetModel::BTS7004_1ESP, LINE_PF10_IN, LINE_PF10_DEN, LINE_UNUSED, AnalogChannel::IS10, &PWMD4, &pwm4Cfg, PwmChannel::Ch1)};
+    Profet(1, ProfetModel::BTS70012_1ESP, LINE_PF1_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS1, &PWMD3, &pwm3Cfg, PwmChannel::Ch1),
+    Profet(2, ProfetModel::BTS70012_1ESP, LINE_PF2_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS2, &PWMD4, &pwm4Cfg, PwmChannel::Ch1),
+    Profet(3, ProfetModel::BTS70012_1ESP, LINE_PF3_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS3, &PWMD5, &pwm5Cfg, PwmChannel::Ch1),
+    Profet(4, ProfetModel::BTS70012_1ESP, LINE_PF4_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS4, &PWMD9, &pwm9Cfg, PwmChannel::Ch1),
+    Profet(5, ProfetModel::BTS7004_1ESP, LINE_PF5_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS5, &PWMD3, &pwm3Cfg, PwmChannel::Ch1),
+    Profet(6, ProfetModel::BTS7004_1ESP, LINE_PF6_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS6, &PWMD4, &pwm4Cfg, PwmChannel::Ch1),
+    Profet(7, ProfetModel::BTS7004_1ESP, LINE_PF7_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS7, &PWMD5, &pwm5Cfg, PwmChannel::Ch1),
+    Profet(8, ProfetModel::BTS7004_1ESP, LINE_PF8_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS8, &PWMD9, &pwm9Cfg, PwmChannel::Ch1),
+    Profet(9, ProfetModel::BTS7004_1ESP, LINE_PF9_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS9, &PWMD3, &pwm3Cfg, PwmChannel::Ch1),
+    Profet(10, ProfetModel::BTS7004_1ESP, LINE_PF10_IN, LINE_UNUSED, LINE_UNUSED, AnalogChannel::IS10, &PWMD4, &pwm4Cfg, PwmChannel::Ch1)};
     
 
 Digital_Input digIn[NUM_DIG_INPUTS] = {

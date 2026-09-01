@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "cwd": "${workspaceFolder}",
             "executable": "${workspaceFolder}/build/dingopdm_v7.elf",
@@ -60,6 +61,22 @@
 						    "target/stm32f4x.cfg"],
             "showDevDebugOutput": "raw",
             "svdFile": "${workspaceFolder}/boards/pt-dpdm4_1/STM32F446.svd",
+            "rtos": "auto",
+            "v1": false,
+            "runToEntryPoint": "main",
+
+        },
+        {
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/V-PDM110.elf",
+            "name": "Debug V-PDM110",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "configFiles": ["interface/stlink.cfg", 
+						    "target/stm32f4x.cfg"],
+            "showDevDebugOutput": "raw",
+            "svdFile": "${workspaceFolder}/boards/V-PDM110/STM32F446.svd",
             "rtos": "auto",
             "v1": false,
             "runToEntryPoint": "main",
