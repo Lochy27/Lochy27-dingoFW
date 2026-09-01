@@ -10,6 +10,11 @@
 
 Firmware repo for dingoPDM, dingoPDM-Max, CANBoard and other dingoFW based devices. 
 
+to do for V-PDM110
+- add in second CAN functionality - vehicle specific
+- add in temperature sensor Analaog device type
+- update board files for higher pin count stm32
+
 dingoPDM is an Infineon Profet based Power Distribution Module. 
 
 # [**Documentation**](https://corygrant.github.io/dingoPDM/)
