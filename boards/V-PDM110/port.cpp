@@ -125,6 +125,23 @@ uint16_t GetAdcRaw(AnalogChannel channel)
     return adc1_samples[static_cast<uint8_t>(channel)];
 }
 
+float AdcToVolts(adcsample_t raw)
+{
+    // MCU vRef = 3.3v
+    // 4095 counts full scale
+    float mcuVolts = (3.3 / 4095) * raw;
+
+    const float rUpper = 4700;
+    const float rLower = 10000;
+
+    return mcuVolts * ((rUpper + rLower) / rLower);
+}
+
+float GetAdcVolts(AnalogChannel channel)
+{
+    return AdcToVolts(GetAdcRaw(channel));
+}
+
 float GetBattVolt()
 {
     // MCU vRef = 3.3v

@@ -7,6 +7,7 @@
  */
 int main(void) {
   
+
   halInit();
   chSysInit();
   
