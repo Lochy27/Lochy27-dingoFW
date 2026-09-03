@@ -34,7 +34,7 @@
 /*
  * Board oscillators-related settings.
  * NOTE: LSE not fitted.
- * NOTE: HSE 8MHz.
+ * NOTE: HSE 8MHz supplied by the Nucleo ST-LINK MCO.
  */
 #if !defined(STM32_LSECLK)
 #define STM32_LSECLK                0U
@@ -43,9 +43,8 @@
 #define STM32_LSEDRV                (3U << 3U)
 
 #if !defined(STM32_HSECLK)
-#define STM32_HSECLK                25000000U
+#define STM32_HSECLK                8000000U
 #endif
-//// only for testing with nucleo board
 #define STM32_HSE_BYPASS
 
 #if !defined(STM32_VDD)

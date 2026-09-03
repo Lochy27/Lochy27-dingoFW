@@ -3,7 +3,7 @@
 #include "hal.h"
 #include "enums.h"
 
-#define PDM_TYPE 3 //3 = V-PDM110
+#define PDM_TYPE 4 //4 = V-PDM110
 
 #define PROCESS_STACK 0x1000
 

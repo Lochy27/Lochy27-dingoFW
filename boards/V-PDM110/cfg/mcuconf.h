@@ -48,12 +48,12 @@
 #define STM32_CLOCK48_REQUIRED              TRUE
 #define STM32_SW                            STM32_SW_PLL
 #define STM32_PLLSRC                        STM32_PLLSRC_HSE
-#define STM32_PLLM_VALUE                    15
-#define STM32_PLLN_VALUE                    144
+#define STM32_PLLM_VALUE                    5
+#define STM32_PLLN_VALUE                    180
 #define STM32_PLLP_VALUE                    2
-#define STM32_PLLQ_VALUE                    5
+#define STM32_PLLQ_VALUE                    6
 #define STM32_PLLI2SN_VALUE                 192
-#define STM32_PLLI2SM_VALUE                 16
+#define STM32_PLLI2SM_VALUE                 8
 #define STM32_PLLI2SR_VALUE                 2
 #define STM32_PLLI2SP_VALUE                 2
 #define STM32_PLLI2SQ_VALUE                 2
