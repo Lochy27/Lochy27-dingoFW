@@ -1,5 +1,6 @@
 #include "profet.h"
 #include "dbc.h"
+#include "debug_log.h"
 
 #if NUM_OUTPUTS > 0
 void Profet::Update(bool bOutEnabled)
@@ -24,6 +25,16 @@ void Profet::Update(bool bOutEnabled)
     {
         FollowerUpdate();
         return;
+    }
+
+    if (*pInput != fLastDebugInput)
+    {
+        DebugStr("Profet input output="); DebugHex(m_num);
+        DebugStr(" value="); DebugHex(static_cast<uint32_t>(*pInput));
+        DebugStr(" enabled="); DebugHex(pConfig->bEnabled);
+        DebugStr(" gate="); DebugHex(bOutEnabled);
+        DebugStr("\r\n");
+        fLastDebugInput = *pInput;
     }
 
     if ((*pInput) && bOutEnabled)

@@ -110,6 +110,7 @@ void ApplyConfig(uint16_t nIndex)
         // Use filter 0, it is always enabled to allow all messages by hal so it must be used
         SetCanFilterId(0, stConfig.stDevice.nBaseId - 1, false);
 
+        //uint8_t nNextFilter = 1;
         for (uint8_t i = 0; i < NUM_CAN_INPUTS; i++)
         {
             canIn[i].SetConfig(&stConfig.stCanInput[i]);

@@ -4,6 +4,7 @@
 #include "port.h"
 #include "enums.h"
 #include "pwm.h"
+#include "debug_log.h"
 
 #if NUM_OUTPUTS > 0
 
@@ -90,6 +91,12 @@ public:
         pConfig = config;
         pInput = pVarMap[config->nInput];
 
+        DebugStr("Profet config output="); DebugHex(m_num);
+        DebugStr(" varIndex="); DebugHex(config->nInput);
+        DebugStr(" ptr="); DebugHex(reinterpret_cast<uint32_t>(pInput));
+        DebugStr(" value="); DebugHex(static_cast<uint32_t>(*pInput));
+        DebugStr("\r\n");
+
         pwm.SetConfig(&config->stPwm);
     }
 
@@ -116,6 +123,7 @@ public:
     float fCurrent;
     float fOvercurrent;
     float fFault;
+    float fLastDebugInput = -1.0f;
 
 private:
     const uint16_t m_num;

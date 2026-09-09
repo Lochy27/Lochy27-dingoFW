@@ -454,7 +454,16 @@ void InitVarMap()
     {
         for (uint8_t j = 0; j < KEYPAD_MAX_BUTTONS; j++)
         {
+            uint16_t nButtonVarIndex = index;
             pVarMap[index++] = &keypad[i].fButtonVal[j];
+
+            if (i == 0 && j < 8)
+            {
+                DebugStr("VarMap keypad button "); DebugHex(j);
+                DebugStr(" index="); DebugHex(nButtonVarIndex);
+                DebugStr(" ptr="); DebugHex(reinterpret_cast<uint32_t>(pVarMap[nButtonVarIndex]));
+                DebugStr("\r\n");
+            }
         }
 
         for (uint8_t j = 0; j < KEYPAD_MAX_DIALS; j++)

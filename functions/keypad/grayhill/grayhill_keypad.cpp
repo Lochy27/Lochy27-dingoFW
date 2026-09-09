@@ -2,6 +2,8 @@
 #include "grayhill_button.h"
 #include "keypad.h"
 
+#include "debug_log.h"
+
 namespace {
 
 // Grayhill LED indicator control
@@ -75,6 +77,9 @@ void SetModelGrayhill(Keypad* kp)
         case KeypadModel::Grayhill8Key:
             kp->nNumButtons = 8;
             break;
+        case KeypadModel::Grayhill12Key:
+            kp->nNumButtons = 12;
+            break;
         case KeypadModel::Grayhill15Key:
             kp->nNumButtons = 15;
             break;
@@ -98,11 +103,26 @@ bool CheckMsgGrayhill(Keypad* kp, CANRxFrame frame)
     // Grayhill uses CANopen TPDO format
     // nNodeId + 0x180
     // Byte 0-2: Button states (up to 20 buttons)
+    DebugStr("GH check SID="); DebugHex(frame.SID);
+    DebugStr(" expect="); DebugHex(kp->pConfig->nNodeId + 0x180); DebugStr("\r\n");
+
     if (frame.SID != kp->pConfig->nNodeId + 0x180)
         return false;
 
+    DebugStr("GH RX SID="); DebugHex(frame.SID);
+    DebugStr(" data0="); DebugHex(frame.data8[0]); DebugStr("\r\n");
+
     for(uint8_t i = 0; i < kp->nNumButtons; i++)
-        kp->fButtonVal[i] = kp->button[i].UpdateState((frame.data8[i / 8] >> (i % 8)) & 0x01);
+    {
+        bool bBit = (frame.data8[i / 8] >> (i % 8)) & 0x01;
+        kp->fButtonVal[i] = kp->button[i].UpdateState(bBit);
+
+        DebugStr(" btn"); DebugHex(i);
+        DebugStr(" en="); DebugHex(kp->button[i].pConfig->bEnabled);
+        DebugStr(" bit="); DebugHex(bBit);
+        DebugStr(" val="); DebugHex((uint32_t)kp->fButtonVal[i]);
+        DebugStr("\r\n");
+    }
 
     kp->nLastRxTime = SYS_TIME;
 

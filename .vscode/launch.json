@@ -73,13 +73,22 @@
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
-            "configFiles": ["interface/stlink.cfg", 
+            "configFiles": ["interface/stlink-dap.cfg", 
 						    "target/stm32f4x.cfg"],
             "showDevDebugOutput": "raw",
             "svdFile": "${workspaceFolder}/boards/V-PDM110/STM32F446.svd",
             "rtos": "auto",
             "v1": false,
             "runToEntryPoint": "main",
+            "swoConfig": {
+                "enabled": true,
+                "cpuFrequency": 144000000,
+                "swoFrequency": 2000000,
+                "source": "probe",
+                "decoders": [
+                    { "type": "console", "label": "Debug", "port": 0 }
+                ]
+            },
 
         }
     ]

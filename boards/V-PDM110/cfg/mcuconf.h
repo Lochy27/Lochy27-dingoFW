@@ -58,7 +58,7 @@
 #define STM32_PLLI2SP_VALUE                 2
 #define STM32_PLLI2SQ_VALUE                 2
 #define STM32_PLLSAIN_VALUE                 192
-#define STM32_PLLSAIM_VALUE                 16
+#define STM32_PLLSAIM_VALUE                 8
 #define STM32_PLLSAIP_VALUE                 4
 #define STM32_PLLSAIQ_VALUE                 2
 #define STM32_HPRE                          STM32_HPRE_DIV1

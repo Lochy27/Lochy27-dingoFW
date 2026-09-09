@@ -13,6 +13,6 @@ public:
     bool Check(InputMode eMode, bool bInvert, bool bVal);
 
 private:
-    bool bOut;
-    bool bLast;
+    bool bOut = false;
+    bool bLast = false;
 };

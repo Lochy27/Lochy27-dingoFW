@@ -6,9 +6,13 @@ void UpdateButtonLedGrayhill(KeypadButton* btn)
     if (!btn->pConfig->bEnabled)
         return;
 
+    btn->bLed[0] = false;
+    btn->bLed[1] = false;
+    btn->bLed[2] = false;
+
     for (uint8_t i = 0; i < 4; i++)
     {
-        if (btn->pLedVars[i])
+        if (*btn->pLedVars[i])
         {
             btn->bLed[0] = (btn->pConfig->nColors[i] & 0x01) > 0; // Bit 0
             btn->bLed[1] = (btn->pConfig->nColors[i] & 0x02) > 0; // Bit 1
@@ -17,7 +21,7 @@ void UpdateButtonLedGrayhill(KeypadButton* btn)
     }
 
     // Fault LEDs takes precedence over value LEDs
-    if (btn->pFaultLedVar)
+    if (*btn->pFaultLedVar)
     {
         btn->bLed[0] = (btn->pConfig->nFaultColor & 0x01) > 0; // Bit 0
         btn->bLed[1] = (btn->pConfig->nFaultColor & 0x02) > 0; // Bit 1
